@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class Hospital {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
 
         Scanner input = new Scanner(System.in);
         System.out.print("Waiting room capacity: ");
@@ -37,6 +37,7 @@ public class Hospital {
 
         for (Patient p : patients) {
             p.start();
+            Thread.sleep(200);   // small gap between arrivals
         }
 
         try {

@@ -25,16 +25,17 @@ public class Doctor extends Thread {
 
                     System.out.println("Doctor " + id + " finished treating " + p + ".");
                     rooms.release();
+                    
                     System.out.println("Doctor " + id + " released the treatment room.");
-
+                    System.out.println("Doctor " + id + " is now available.");
                     p.treated = true;
                     p.done.release();
                 }else{
                     System.out.println("Doctor " + id + " couldnt acquire room.");
                     System.out.println("Doctor " + id + " is sending" + p + " back to the waiting room.");
+                    System.out.println("Doctor " + id + " is now available.");
                     p.done.release();
                 }
-                System.out.println("Doctor " + id + " is now available.");
             }
         }catch ( InterruptedException e){
 
